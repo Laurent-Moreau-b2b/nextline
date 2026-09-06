@@ -16,15 +16,15 @@
       </a>
       <a
         class="font-['Roboto_Slab'] text-sm uppercase tracking-[0.12em] text-[#534532] transition hover:text-[#37636b]"
-        href="#team"
-      >
-        Notre team
-      </a>
-      <a
-        class="font-['Roboto_Slab'] text-sm uppercase tracking-[0.12em] text-[#534532] transition hover:text-[#37636b]"
         href="#practical-info"
       >
         Infos pratiques
+      </a>
+      <a
+        class="font-['Roboto_Slab'] text-sm uppercase tracking-[0.12em] text-[#534532] transition hover:text-[#37636b]"
+        href="#team"
+      >
+        Notre team
       </a>
       <a
         class="bg-[#37636b] px-5 py-3 font-['Roboto_Slab'] text-sm uppercase tracking-[0.12em] text-[#D6CABF] transition hover:bg-[#534532]"
@@ -34,14 +34,23 @@
       </a>
     </div>
 
-    <details class="relative md:hidden">
-      <summary
-        class="cursor-pointer list-none font-['Roboto_Slab'] text-sm uppercase tracking-[0.12em] text-[#37636b]"
+    <div class="relative md:hidden">
+      <button
+        type="button"
+        class="flex h-11 w-11 flex-col items-center justify-center gap-1.5 border border-[#37636b] text-[#37636b]"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        data-menu-toggle
       >
-        Menu
-      </summary>
+        <span class="block h-0.5 w-5 bg-current"></span>
+        <span class="block h-0.5 w-5 bg-current"></span>
+        <span class="block h-0.5 w-5 bg-current"></span>
+      </button>
       <div
-        class="absolute right-0 top-10 w-56 border border-[#37636b]/20 bg-[#D6CABF] p-4 shadow-lg"
+        id="mobile-menu"
+        class="absolute right-0 top-14 hidden w-56 border border-[#37636b]/20 bg-[#D6CABF] p-4 shadow-lg"
+        data-mobile-menu
       >
         <div
           class="grid gap-4 font-['Roboto_Slab'] text-sm uppercase tracking-[0.1em] text-[#534532]"
@@ -52,6 +61,30 @@
           <a href="#contact">Contact</a>
         </div>
       </div>
-    </details>
+    </div>
   </div>
 </nav>
+
+<script>
+  const menuToggle = document.querySelector('[data-menu-toggle]');
+  const mobileMenu = document.querySelector('[data-mobile-menu]');
+
+  if (menuToggle instanceof HTMLButtonElement && mobileMenu instanceof HTMLElement) {
+    const menuLinks = mobileMenu.querySelectorAll('a');
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', String(!isOpen));
+      menuToggle.setAttribute('aria-label', isOpen ? 'Ouvrir le menu' : 'Fermer le menu');
+      mobileMenu.classList.toggle('hidden', isOpen);
+    });
+
+    menuLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Ouvrir le menu');
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  }
+</script>
