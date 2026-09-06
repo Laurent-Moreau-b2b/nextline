@@ -1,0 +1,49 @@
+---
+const teamMembers = [
+  {
+    name: 'Prénom Nom',
+    role: 'Hiking guide',
+    image: '/img/vtt.jpg',
+    imageAlt: 'Guide en sortie outdoor',
+  },
+  {
+    name: 'Prénom Nom',
+    role: 'Ski freestyle coach',
+    image: '/img/ski_freestyle.webp',
+    imageAlt: 'Coach de ski freestyle en montagne',
+  },
+  {
+    name: 'Prénom Nom',
+    role: 'Wake surf coach',
+    image: '/img/wake_surf.webp',
+    imageAlt: 'Coach de wake surf sur un lac',
+  },
+];
+---
+
+<section id="team" class="scroll-mt-24 px-4 py-16 antialiased md:py-24">
+  <div class="mx-auto max-w-screen-xl">
+    <h1
+      class="mb-12 text-center font-['Roboto_Slab'] text-4xl font-medium tracking-wide text-[#37636b] md:text-6xl"
+    >
+      NOTRE TEAM
+    </h1>
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+      {
+        teamMembers.map((member) => (
+          <article class="text-center">
+            <img
+              class="aspect-[4/5] w-full object-cover"
+              src={member.image}
+              alt={member.imageAlt}
+            />
+            <h2 class="mt-5 font-['Roboto_Slab'] text-2xl font-medium text-[#534532]">
+              {member.name}
+            </h2>
+            <p class="mt-2 text-lg text-[#37636b]">{member.role}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

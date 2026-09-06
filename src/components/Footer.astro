@@ -3,27 +3,53 @@ const { title, address, text } = Astro.props;
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="p-4  md:p-8 lg:p-10 bg-gray-800">
-  <div class="mx-auto max-w-screen-xl text-center">
-    <a
-      href="https://github.com/Inushin/simpleAstroLandingPageTheme"
-      class="flex justify-center items-center text-2xl font-semibold text-white hover:underline"
+<footer class="bg-[#D6CABF] p-4 md:p-8 lg:p-10">
+  <div class="mx-auto max-w-screen-xl">
+    <div class="grid gap-12 border-b border-[#37636b]/30 pb-12 md:grid-cols-12 md:gap-8">
+      <div class="md:col-span-5">
+        <img class="mb-6 h-28 w-28 object-contain" src="/img/logo.png" alt="Logo Next Line" />
+        <h2 class="mb-4 font-['Roboto_Slab'] text-3xl font-medium tracking-wide text-[#37636b]">
+          {title}
+        </h2>
+        <p class="max-w-md leading-relaxed text-[#534532]">
+          {text}
+        </p>
+      </div>
+      <nav class="md:col-span-3" aria-label="Activités">
+        <h3 class="mb-5 font-['Roboto_Slab'] text-sm font-medium tracking-[0.16em] text-[#37636b]">
+          ACTIVITÉS
+        </h3>
+        <ul class="space-y-3 text-[#534532]">
+          <li><a class="transition hover:text-[#37636b]" href="#vtt">VTT</a></li>
+          <li>
+            <a class="transition hover:text-[#37636b]" href="#ski-freestyle">Ski freestyle</a>
+          </li>
+          <li><a class="transition hover:text-[#37636b]" href="#wake-surf">Wake surf</a></li>
+          <li><a class="transition hover:text-[#37636b]" href="#skate">Skate</a></li>
+        </ul>
+      </nav>
+      <div class="md:col-span-4">
+        <h3 class="mb-5 font-['Roboto_Slab'] text-sm font-medium tracking-[0.16em] text-[#37636b]">
+          CONTACT
+        </h3>
+        <address class="space-y-3 not-italic text-[#534532]">
+          <a class="block transition hover:text-[#37636b]" href="mailto:contact@nextline.ch">
+            contact@nextline.ch
+          </a>
+          <a class="block transition hover:text-[#37636b]" href="tel:+41000000000">
+            +41 00 000 00 00
+          </a>
+          <a class="block transition hover:text-[#37636b]" href="https://maps.google.com">
+            {address}
+          </a>
+        </address>
+      </div>
+    </div>
+    <div
+      class="flex flex-col gap-3 pt-6 text-sm text-[#534532] sm:flex-row sm:items-center sm:justify-between"
     >
-      {title}
-    </a>
-    <a
-      href="https://www.google.com/maps/"
-      class="my-6 text-gray-400 hover:underline"
-    >
-      {address}
-    </a>
-    <p class="my-6 text-gray-400">
-      {text}
-    </p>
-    <span class="text-sm sm:text-center text-gray-400"
-      >© {currentYear}
-      <a href="https://kuroshitec.com" class="hover:underline">KuroShi Tec</a>.
-      All Rights Reserved.</span
-    >
+      <span>© {currentYear} {title}</span>
+      <a class="transition hover:text-[#37636b]" href="#top">Retour en haut</a>
+    </div>
   </div>
 </footer>

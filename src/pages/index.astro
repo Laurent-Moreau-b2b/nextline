@@ -1,8 +1,13 @@
 ---
-import "../styles/global.css";
-import Footer from "../components/Footer.astro";
-import Hero from "../components/Hero.astro";
-import Section from "../components/Section.astro";
+import '../styles/global.css';
+import Activities from '../components/Activities.astro';
+import ActivitySection from '../components/ActivitySection.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import Navbar from '../components/Navbar.astro';
+import Section from '../components/Section.astro';
+import Team from '../components/Team.astro';
 ---
 
 <html lang="en">
@@ -12,10 +17,9 @@ import Section from "../components/Section.astro";
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap"
       rel="stylesheet"
-    />
-    <meta name="viewport" content="width=device-width" />
+    /><meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta property="og:image" content="img/img_00.jpg" />
     <meta
@@ -23,45 +27,97 @@ import Section from "../components/Section.astro";
       property="og:description"
       content="Simple Astro Landing Page Theme is... just that, a simple FREE, CUSTOMIZABLE, and PRODUCCTION-READY, Landing Page Theme build with Astro and Tailwind CSS."
     />
-    <title>Simple Astro Landing Page Theme | KuroShi Tec</title>
+    <title>NEXT LINE</title>
   </head>
-  <body>
+  <body id="top">
+    <Navbar />
     <header class="landing-header">
-      <Hero
-        title="Simple Astro Landing Page Theme"
-        text="Simple Astro Landing Page Theme is... just that, a simple FREE, CUSTOMIZABLE, and PRODUCCTION-READY, Landing Page Theme build with Astro and Tailwind CSS."
-        imgSrc="img/img_00.jpg"
-      />
+      <Hero title="NEXT LINE" text="EVERY RIDER HAS A NEXT LINE" imgSrc="img/hero-image.png" />
     </header>
     <main>
       <Section
-        title="Section 1"
-        text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis similique voluptatum corrupti dolore, assumenda sapiente unde consectetur, magni laboriosam deserunt nisi, cupiditate sunt quam fuga omnis sed nulla. Soluta, quam."
+        title={'WELCOME TO\nNEXT LINE'}
+        text={"Chez Next Line, nous croyons que chaque rider a une prochaine étape à franchir. Que ce soit sur les skis, un skate, un vélo ou dans n'importe quel sport outdoor, chaque nouvelle ligne est une occasion de progresser, de prendre confiance et de se dépasser.\nNotre mission est de transmettre la passion des sports outdoor à travers des coachings et des camps en petits groupes. Nous créons un environnement où chacun évolue à son rythme, dans un esprit de bienveillance, de sécurité et de partage."}
         imagePosition="right"
-        imgSrc="/img/img_01.jpg"
+        imgSrc="/img/mont_cervin.jpg"
         imgAlt="Img Alt"
       />
 
       <Section
-        title="Section 2"
-        text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis similique voluptatum corrupti dolore, assumenda sapiente unde consectetur, magni laboriosam deserunt nisi, cupiditate sunt quam fuga omnis sed nulla. Soluta, quam."
+        title="QUI SOMMES-NOUS ?"
+        text={"Next Line propose des activités outdoor tout au long de l'année, adaptées à tous les niveaux, des débutants aux riders les plus motivés.\nNos différentes disciplines permettent à chacun de découvrir de nouvelles sensations et de progresser dans un cadre sécurisé et convivial.\nEn complément de ces activités, Next Line organise des cours privés, des cours collectifs, des camps, des journées découverte, ainsi que des programmes sur mesure pour les écoles, les entreprises et les groupes.\nQuelle que soit l'activité choisie, notre priorité reste la même : offrir une expérience de qualité, où le plaisir, la sécurité et la progression sont au cœur de chaque sortie."}
         imagePosition="left"
-        imgSrc="img/img_01.jpg"
+        imgSrc="/img/mont_cervin.jpg"
         imgAlt="Img Alt"
       />
 
-      <Section
-        title="Section 3"
-        text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis similique voluptatum corrupti dolore, assumenda sapiente unde consectetur, magni laboriosam deserunt nisi, cupiditate sunt quam fuga omnis sed nulla. Soluta, quam."
+      <Activities />
+
+      <ActivitySection
+        id="vtt"
+        eyebrow="01 / Terre"
+        title="VTT"
+        text={"Chez Next Line, nous proposons des séances adaptées à tous les niveaux, de l'initiation au perfectionnement. Que ce soit sur des sentiers, en bike park ou sur des parcours techniques, chaque sortie est conçue pour développer les bases essentielles : équilibre, freinage, trajectoires, franchissements et maîtrise du vélo.\n\n Grâce à un accompagnement personnalisé et des groupes à taille humaine, chaque rider progresse à son rythme dans un environnement sécurisé et motivant.Notre objectif est simple : permettre à chacun de prendre du plaisir sur son vélo, de repousser ses limites en toute sécurité et de vivre des expériences inoubliables en pleine nature."}
+        imgSrc="/img/vtt.jpg"
+        imgAlt="Rider en VTT sur un sentier de montagne"
         imagePosition="right"
-        imgSrc="img/img_01.jpg"
-        imgAlt="Img Alt"
+        level="Débutant à confirmé"
+        formats="Cours privés, groupes et camps"
       />
+
+      <ActivitySection
+        id="ski-freestyle"
+        eyebrow="02 / Neige"
+        title="SKI FREESTYLE"
+        text={"En été et en automne, nous organisons des stages et du coaching privéé sur les glaciers suisses, où les snowparks restent ouverts. Ces sessions offrent des conditions idéales pour travailler la technique, découvrir le freestyle ou préparer la saison d'hiver dans un environnement exceptionnel.\n\nPour apprendre de nouveaux tricks en toute sécurité, nous proposons également des sessions sur l'airbag de Leysin. Grâce à cette installation, les riders peuvent essayer de nouvelles figures, gagner en confiance et perfectionner leurs mouvements avant de les reproduire sur la neige."}
+        imgSrc="/img/ski_freestyle.webp"
+        imgAlt="Skieur face aux montagnes enneigées"
+        imagePosition="left"
+        level="Tous niveaux"
+        formats="Coaching, cours collectifs et camps"
+      />
+
+      <ActivitySection
+        id="wake-surf"
+        eyebrow="03 / Eau"
+        title="WAKE SURF"
+        text={"Découvrez les sensations uniques du wakesurf avec Next Line. Que vous soyez débutant ou déjà expérimenté, nos sessions sont adaptées à tous les niveaux et personnalisé. \n\n Apprenez à maîtriser la vague, améliorez votre technique et profitez d'une expérience inoubliable dans un cadre sécurisé, où le plaisir et la progression sont toujours au rendez-vous."}
+        imgSrc="/img/wake_surf.webp"
+        imgAlt="Session de wake surf sur un lac"
+        imagePosition="right"
+        level="Débutant à confirmé"
+        formats="Initiation, perfectionnement et groupes"
+      />
+
+      <ActivitySection
+        id="skate"
+        eyebrow="04 / Urbain"
+        title="SKATE"
+        text={'Apprendre à se déplacer, maîtriser ses premiers tricks et prendre confiance sur la planche.\nUn accompagnement adapté à chaque âge pour progresser avec style, patience et plaisir.'}
+        imgSrc="/img/skate.jpg"
+        imgAlt="Skateur en mouvement"
+        imagePosition="left"
+        level="Débutant à confirmé"
+        formats="Cours privés, collectifs et journées découverte"
+      />
+
+      <Section
+        id="practical-info"
+        title="INFOS PRATIQUES"
+        text={"Toutes les activités Next Line sont encadrées par un moniteur qualifié et adaptées au niveau ainsi qu'aux objectifs de chaque participant.\n\nLes cours sont proposés en privé, en petits groupes ou sous forme de camps, afin de garantir un accompagnement personnalisé et une progression optimale.\n\nLe matériel spécifique peut être fourni ou loué selon l'activité. Une liste de l'équipement à prévoir est communiquée avant chaque séance ou chaque camp.\n\nLes lieux, horaires, tarifs et disponibilités varient en fonction de l'activité et de la saison. N'hésitez pas à nous contacter pour recevoir toutes les informations et trouver la formule qui vous correspond."}
+        imagePosition="right"
+        imgSrc="/img/mont_cervin.jpg"
+        imgAlt="Paysage de montagne où se déroulent les activités Next Line"
+      />
+
+      <Team />
+
+      <Contact />
     </main>
   </body>
   <Footer
-    title="Simple Astro Landing Page Theme"
-    address="Example Address, 6 - Somewhere in the world (99999), Spain"
-    text="A simple Landing Page built with Astro, TailwindCSS and TypeScript."
+    title="NEXT LINE"
+    address="Suisse, Alpes"
+    text="Coaching et camps outdoor pour progresser, partager et trouver sa prochaine ligne."
   />
 </html>

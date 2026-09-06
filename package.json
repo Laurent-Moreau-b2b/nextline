@@ -6,6 +6,8 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -15,5 +17,10 @@
     "astro": "^4.15.4",
     "tailwindcss": "^3.4.10",
     "typescript": "^5.5.4"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.6",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.8.1"
   }
 }

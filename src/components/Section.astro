@@ -1,28 +1,29 @@
 ---
-const { title, text, imgSrc, imgAlt, imagePosition } = Astro.props;
+const { id, title, text, imgSrc, imgAlt, imagePosition } = Astro.props;
+const textOverlapClass = imagePosition === 'right' ? 'lg:-mr-32' : 'lg:-ml-32';
 ---
 
-<section class="px-4 py-8 antialiased bg-gray-900 md:py-16">
-  <div
-    class="mx-auto grid max-w-screen-xl rounded-lg p-4 bg-gray-800 md:p-8 lg:grid-cols-12 lg:gap-8 lg:p-16 xl:gap-16"
-  >
+<section id={id} class="scroll-mt-24 px-4 py-8 antialiased md:py-16">
+  <div class="mx-auto grid max-w-screen-xl lg:grid-cols-12 lg:gap-8 xl:gap-16">
     <div
-      class={`lg:col-span-5 lg:mt-0 ${imagePosition === "right" ? "lg:order-2" : ""}`}
+      class={`relative z-0 lg:h-[36rem] lg:col-span-5 lg:mt-0 ${imagePosition === 'right' ? 'lg:order-2' : ''}`}
     >
       <img
-        class="mb-4 h-56 w-56 dark:hidden sm:h-96 sm:w-96 md:h-full md:w-full"
+        class="mb-4 h-56 w-full object-cover sm:h-96 md:h-full dark:hidden"
         src={imgSrc}
         alt={imgAlt}
       />
-      <img class="mb-4 hidden dark:block md:h-full" src={imgSrc} alt={imgAlt} />
+      <img class="mb-4 hidden h-full w-full object-cover dark:block" src={imgSrc} alt={imgAlt} />
     </div>
-    <div class="me-auto place-self-center lg:col-span-7">
+    <div
+      class={`relative z-10 me-auto place-self-center bg-[#D6CABF] p-4 md:p-8 lg:col-span-7 lg:p-16 ${textOverlapClass}`}
+    >
       <h1
-        class="mb-3 text-2xl font-bold leading-tight tracking-tight text-white md:text-4xl"
+        class="mb-12 whitespace-pre-line text-4xl font-bold leading-tight tracking-tight text-[#37636b] md:text-6xl"
       >
         {title}
       </h1>
-      <p class="mb-6 text-gray-400">{text}</p>
+      <p class="mb-6 whitespace-pre-line">{text}</p>
     </div>
   </div>
 </section>
